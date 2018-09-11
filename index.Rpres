@@ -5,7 +5,6 @@ date: 11.09.2018
 autosize: true
 transition: concave
 
-
 Folien online
 ========================================================
 
