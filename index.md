@@ -98,15 +98,7 @@ my_mean <- my_sum / my_count
 ```
 
 
-Zur Erinnerung: externen R Code einbinden (2)
-========================================================
-- __Im R Markdown Dokument:__ R Skript einlesen mit read_chunk():  
-'''{r}  
-knitr::read_chunk("ugly_code.R")  
-'''
-- __Im R Markdown Dokument:__ r label aufrufen:  
-'''{r my label}  
-'''
+
 
 
 Übung
