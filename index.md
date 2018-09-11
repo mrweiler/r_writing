@@ -5,6 +5,7 @@ date: 11.09.2018
 autosize: true
 transition: concave
 
+
 Folien online
 ========================================================
 
@@ -121,7 +122,6 @@ knitr::read_chunk("ugly_code.R")
 Literaturverzeichnis einfügen  
 ========================================================
 
-- 
 
 Fragen?
 ========================================================
