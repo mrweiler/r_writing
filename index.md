@@ -21,6 +21,7 @@ Ziele für heute
 
 Zur Erinnerung: R Markdown
 ========================================================
+
 - Auszeichnungssprache zur Erstellung von Dokumenten 
 - [R Markdown Übersicht]  
   (https://rmarkdown.rstudio.com/)
@@ -88,6 +89,7 @@ Statistische Kennwerte einfügen
 
 Zur Erinnerung: externen R Code einbinden (1)
 ========================================================
+
 - __Im R Skript:__ Label ergänzen
 
 ```r
@@ -100,6 +102,7 @@ my_mean <- my_sum / my_count
 
 Zur Erinnerung: externen R Code einbinden (2)
 ========================================================
+
 - __Im R Markdown Dokument:__ R Skript einlesen mit read_chunk():  
 '''{r}  
 knitr::read_chunk("ugly_code.R")  
@@ -111,6 +114,7 @@ knitr::read_chunk("ugly_code.R")
 
 Übung
 ========================================================
+
 - Erstellt ein R-Skript, in dem ein Mittelwert  
   berechnet wird
 - Bindet diesen Abschnitt eures R Codes in eurem  
@@ -118,8 +122,52 @@ knitr::read_chunk("ugly_code.R")
 - Bindet den Mittelwert in einen Satz ein
 
 
-Literaturverzeichnis einfügen  
+Literaturdatenbank einbinden  
 ========================================================
+
+- In RMarkdown lassen sich auch Datenbanken aus 
+  Programmen zur Literaturverwaltung einbinden
+- Dies geschieht über einen Eintrag im yaml Header:
+
+```r
+bibliography: bibliography.enl
+```
+
+
+Zitierstil anpassen  
+========================================================
+
+- Der Zitierstil kann ebenfalls über einen Eintrag im 
+  yaml Header angepasst werden:
+
+```r
+csl: apa.csl
+```
+- [Zitierstile online]
+  (https://www.zotero.org/styles)  
+
+
+Zitieren
+========================================================
+
+- Literaturverweise wie folgt eingefügt werden:
+
+```r
+Blah blah [@id_der_literaturangabe].
+```
+
+
+Literaturverzeichnis verschieben
+========================================================
+
+- Pandoc fügt das Literaturverzeichnis automatisch  
+  am Ende des Dokumentes ein
+- Alternativ lässt sich die Stelle im Dokument mit
+  diesem html-Code bestimmen:
+
+```r
+<div id="refs"></div>
+```
 
 
 Fragen?
@@ -137,3 +185,5 @@ Links
   (https://rmarkdown.rstudio.com/authoring_basics.html)
 - [Bibliographies and Citations in RMarkdown]  
   (https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#bibliographies)
+- [Zitierstile online]
+  (https://www.zotero.org/styles)  
