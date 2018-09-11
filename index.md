@@ -1,4 +1,4 @@
-Artikel schreiben in RMarkdown - Eine Einführung
+Artikel schreiben in RMarkdown 
 ========================================================
 author: Matthias Weiler
 date: 11.09.2018
