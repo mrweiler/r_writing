@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Artikel schreiben in RMarkdown - Eine Einfuehrung</title>
+  <title>Artikel schreiben in RMarkdown - Eine Einführung</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="concave" data-transition-speed="default">
-<h1>Artikel schreiben in RMarkdown - Eine Einfuehrung</h1><p>Matthias Weiler<br/>11.09.2018</p>
+<h1>Artikel schreiben in RMarkdown - Eine Einführung</h1><p>Matthias Weiler<br/>11.09.2018</p>
 
 <div class="slideContent" >
 
@@ -795,6 +795,182 @@ hljs.initHighlightingOnLoad();
 <h3>Folien online</h3>
 <div class="slideContent" >
 <p><a href="https://mrweiler.github.io/r_writing">https://mrweiler.github.io/r_writing</a></p>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Ziele für heute</h3>
+<div class="slideContent" >
+<ul>
+<li>Word-Dokument erstellen und formatieren<br/></li>
+<li>Statistische Kennwerte einfügen</li>
+<li>Literaturverzeichnis einfügen<br/></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Zur Erinnerung: R Markdown</h3>
+<div class="slideContent" >
+<ul>
+<li>Auszeichnungssprache zur Erstellung von Dokumenten </li>
+<li><a href="https://rmarkdown.rstudio.com/">R Markdown Übersicht</a></li>
+<li><a href="https://rmarkdown.rstudio.com/authoring_basics.html">R Markdown Basics</a></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Word-Dokument in RStudio erstellen</h3>
+<div class="slideContent" >
+<ul>
+<li>Mit Hilfe des R-Pakets <em>knitr</em> können<br/>
+RMarkdown-Dokumente in Markdown<br/>
+umgewandelt werden</li>
+<li>Pandoc kann daraus dann Word-Dokumente<br/>
+(oder pdf, html, &hellip;) erstellen</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Übung</h3>
+<div class="slideContent" >
+<ul>
+<li>Erstellt ein RMarkdown-Dokument mit<br/>
+&ldquo;Word&rdquo; als Output Format und speichert<br/>
+dieses ab</li>
+<li>Klickt auf &ldquo;knitr&rdquo;, um daraus ein<br/>
+Word-Dokument zu erstellen</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Word-Dokument formatieren</h3>
+<div class="slideContent" >
+<ul>
+<li>Pandoc benutzt automatisch die Standard<br/>
+Formatvorlagen von Microsoft Word</li>
+<li>Um dies zu ändern ist es möglich ein<br/>
+Referenz-Dokument anzugeben</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Übung</h3>
+<div class="slideContent" >
+<ul>
+<li>Speichert das soeben erstellte Word-Dokument<br/>
+als <em>reference.docx</em> ab.</li>
+<li>Passt ein paar der Formatvorlagen in Word an</li>
+<li>Ergänzt den yaml-Header eures<br/>
+RMarkdown-Dokuments (Einrückung beachten!:<br/></li>
+</ul>
+
+<pre><code class="r">output:  
+  word_document:  
+    reference_docx: reference.docx
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Statistische Kennwerte einfügen</h3>
+<div class="slideContent" >
+<ul>
+<li>Statistische Kennwerte können aus dem<br/>
+RMarkdown-Dokument über Variablennamen<br/>
+aufgerufen und in den Fließtext<br/>
+eingebunden werden:</li>
+</ul>
+
+<pre><code class="r">... und einem Mittelwert von `r my_mean`.
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Zur Erinnerung: externen R Code einbinden (1)</h3>
+<div class="slideContent" >
+<ul>
+<li><strong>Im R Skript:</strong> Label ergänzen</li>
+</ul>
+
+<pre><code class="r">## ---- my label ----
+my_sum &lt;- 100
+my_count &lt;- 10
+my_mean &lt;- my_sum / my_count
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Zur Erinnerung: externen R Code einbinden (2)</h3>
+<div class="slideContent" >
+<ul>
+<li><strong>Im R Markdown Dokument:</strong> R Skript einlesen mit read_chunk():<br/>
+&#39;&#39;&#39;{r}<br/>
+knitr::read_chunk(&ldquo;ugly_code.R&rdquo;)<br/>
+&#39;&#39;&#39;</li>
+<li><strong>Im R Markdown Dokument:</strong> r label aufrufen:<br/>
+&#39;&#39;&#39;{r my label}<br/>
+&#39;&#39;&#39;</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Übung</h3>
+<div class="slideContent" >
+<ul>
+<li>Erstellt ein R-Skript, in dem ein Mittelwert<br/>
+berechnet wird</li>
+<li>Bindet diesen Abschnitt eures R Codes in eurem<br/>
+RMarkdown Dokument ein</li>
+<li>Bindet den Mittelwert in einen Satz ein</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Literaturverzeichnis einfügen  </h3>
+<div class="slideContent" >
+<ul>
+<li></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Fragen?</h3>
+<div class="slideContent" >
+
+</div>
+
+</section>
+<section data-transition="concave" data-transition-speed="default">
+<h3>Links</h3>
+<div class="slideContent" >
+<ul>
+<li><a href="https://mrweiler.github.io/r_writing">Folien online</a><br/></li>
+<li><a href="https://rmarkdown.rstudio.com/">R Markdown Übersicht</a></li>
+<li><a href="https://rmarkdown.rstudio.com/authoring_basics.html">R Markdown Basics</a></li>
+<li><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#bibliographies">Bibliographies and Citations in RMarkdown</a></li>
+</ul>
 
 </div>
 
